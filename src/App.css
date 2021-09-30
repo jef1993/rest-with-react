@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap");
+* *::after *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: #959595;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, #88ecf2, #569ae9);
+}
+
+.container {
+  height: 80rem;
+  width: 60rem;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 5px 25px 5px rgba(22, 22, 22, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container * {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  margin: 6rem 0 3rem 0;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+.title__main {
+  font-size: 5rem;
+  font-weight: 200;
+  margin-bottom: 2.5rem;
+}
+.title__main span {
+  color: #569ae9;
+  font-weight: 500;
+}
+
+.form {
+  height: 40rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.form__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.form__input {
+  width: 35rem;
+  height: 5rem;
+  border: 2px solid #959595;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  padding-left: 1rem;
+}
+.form__input:not(:last-of-type) {
+  margin-bottom: 2.5rem;
+}
+.form__input::placeholder {
+  text-transform: uppercase;
+}
+.form__input:focus {
+  outline: none;
+  border: 3px solid #569ae9;
+}
+.form__input:focus:invalid {
+  border-color: #e26554;
+}
+.form__btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  width: auto;
+  padding: 1.5rem 4rem;
+  border-radius: 1000px;
+  justify-self: flex-end;
+  background-color: transparent;
+  border: 2px solid #959595;
+  transition: all ease 0.2s;
+}
+.form__btn:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #569ae9;
+  border-color: #fff;
+}
+
+.alt {
+  text-align: center;
+}
+.alt__link {
+  text-decoration: none;
+  color: #569ae9;
+}
+
+/*# sourceMappingURL=App.css.map */

@@ -1,47 +1,67 @@
-import React, { useState } from "react";
-import { fetchRegister } from "./utils";
+import React, { useState, useEffect } from "react";
+import { fetchRegister, login, tokenLogin } from "./utils";
 import "./App.css";
 
-const App = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import { Login } from "./components/login";
+import { Register } from "./components/register";
 
-  const submitHandler = (e) => {
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+const App = () => {
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [newUser, setNewUser] = useState();
+  const [user, setUser] = useState();
+  const [post, setPost] = useState();
+
+  useEffect(() => {
+    tokenLogin(setUser);
+  }, [setUser]);
+
+  const registerHandler = (e) => {
     e.preventDefault();
-    fetchRegister(username, email, password);
+    fetchRegister(username, email, password, setNewUser);
+  };
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+    login(username, password, setUser);
   };
 
   return (
-    <div className="App">
-      <form onSubmit={submitHandler}>
-        <input
-          placeholder="username"
-          type="text"
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-          value={username}
-        ></input>
-        <input
-          placeholder="email"
-          type="email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          value={email}
-        ></input>
-        <input
-          placeholder="password"
-          type="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          value={password}
-        ></input>
-        <button type="submit">Register</button>
-      </form>
-    </div>
+    <Router>
+      <div className="App">
+        <div className="container">
+          <div className="title">
+            <div className="title__main">
+              My<span>Notes</span>
+            </div>
+            <div className="title__sub">Never forget anything again.</div>
+          </div>
+          <Switch>
+            <Route path="/register">
+              <Register
+                register={registerHandler}
+                usernameChange={setUsername}
+                emailChange={setEmail}
+                passwordChange={setPassword}
+              />
+            </Route>
+            <Route path="/">
+              <Login
+                login={loginHandler}
+                usernameChange={setUsername}
+                passwordChange={setPassword}
+              />
+            </Route>
+          </Switch>
+        </div>
+
+        {/* <h1>{newUser && newUser.greeting}</h1>
+        <h1>{user && user.greeting}</h1> */}
+      </div>
+    </Router>
   );
 };
 
