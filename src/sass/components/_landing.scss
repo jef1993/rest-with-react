@@ -1,12 +1,14 @@
 .App {
   @include flex-center(row);
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100vw;
   background-image: linear-gradient(
     to bottom,
     $color-primary-light,
     $color-primary
   );
+  background-size: cover;
 }
 
 .container {

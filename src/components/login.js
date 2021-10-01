@@ -1,6 +1,11 @@
 import React from "react";
 
-export const Login = ({ login, usernameChange, passwordChange }) => {
+export const Login = ({
+  login,
+  usernameChange,
+  passwordChange,
+  errorMessage,
+}) => {
   return (
     <div className="container__content login">
       <form className="form form__login" onSubmit={login}>
@@ -14,6 +19,7 @@ export const Login = ({ login, usernameChange, passwordChange }) => {
             }}
           ></input>
           <input
+            id="password"
             className="form__input"
             placeholder="password"
             type="password"
@@ -21,6 +27,7 @@ export const Login = ({ login, usernameChange, passwordChange }) => {
               passwordChange(e.target.value);
             }}
           ></input>
+          {/* <label for="password">{errorMessage}</label> */}
         </div>
 
         <button className="form__btn" type="submit">

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { fetchRegister, login, tokenLogin } from "./utils";
+import { fetchRegister, login, logout, tokenLogin } from "./utils";
 import "./App.css";
 
 import { Login } from "./components/login";
 import { Register } from "./components/register";
+import { Nav } from "./components/nav";
+import { Posts } from "./components/posts";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -12,8 +14,9 @@ const App = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [newUser, setNewUser] = useState();
-  const [user, setUser] = useState();
+  const [user, setUser] = useState("");
   const [post, setPost] = useState();
+  const [message, setMessage] = useState();
 
   useEffect(() => {
     tokenLogin(setUser);
@@ -24,9 +27,10 @@ const App = () => {
     fetchRegister(username, email, password, setNewUser);
   };
 
-  const loginHandler = (e) => {
+  const loginHandler = async (e) => {
     e.preventDefault();
     login(username, password, setUser);
+    // if ("status" in data) setMessage(data.message);
   };
 
   return (
@@ -53,9 +57,18 @@ const App = () => {
                 login={loginHandler}
                 usernameChange={setUsername}
                 passwordChange={setPassword}
+                // errorMessage={() => {
+                //   return "status" in user && user.message;
+                // }}
               />
+              <h1>Hi</h1>
+            </Route>
+            <Route path="/posts">
+              <Nav logout={logout} />
+              <Posts />
             </Route>
           </Switch>
+          <Nav logout={logout} />
         </div>
 
         {/* <h1>{newUser && newUser.greeting}</h1>

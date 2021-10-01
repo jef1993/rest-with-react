@@ -28,26 +28,33 @@ export const login = async (username, password, setter) => {
       }),
     });
     const data = await response.json();
+    console.log(`login`, data);
     await setter(data);
-    localStorage.setItem("myToken", data.accessToken);
+
+    if (data.accessToken) localStorage.setItem("myToken", data.accessToken);
   } catch (error) {
     console.log(error);
   }
 };
 
+export const logout = async () => {
+  localStorage.removeItem("myToken");
+};
+
 export const tokenLogin = async (setter) => {
   try {
     const token = localStorage.getItem("myToken");
-    const response = await fetch("http://localhost:5001/return", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const data = await response.json();
-
-    await setter(data);
-    console.log(data);
+    if (token) {
+      const response = await fetch("http://localhost:5001/return", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
+      await setter(data);
+      console.log(`token`, data);
+    }
   } catch (error) {
     console.log(error);
   }
