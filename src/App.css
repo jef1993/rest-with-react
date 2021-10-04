@@ -20,6 +20,11 @@ body {
   color: #959595;
 }
 
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .App {
   display: flex;
   flex-direction: row;
@@ -71,6 +76,7 @@ body {
   justify-content: center;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .form__box {
   display: flex;
@@ -90,7 +96,7 @@ body {
   padding-left: 1rem;
 }
 .form__input:not(:last-of-type) {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 .form__input::placeholder {
   text-transform: uppercase;
@@ -101,6 +107,13 @@ body {
 }
 .form__input:focus:invalid {
   border-color: #e26554;
+}
+.form__message {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.6rem;
+  position: absolute;
+  bottom: 22%;
 }
 .form__btn {
   font-family: "Montserrat", sans-serif;
@@ -126,6 +139,108 @@ body {
 .alt__link {
   text-decoration: none;
   color: #569ae9;
+}
+
+.user {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 10;
+}
+
+.nav {
+  width: 12rem;
+  background-color: #1f6bc3;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav__btn {
+  margin-top: 5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-color: transparent;
+  border: 3px solid #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.nav__btn * {
+  fill: #fff;
+}
+
+.posts {
+  flex-grow: 1;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 5rem 0 3rem 0;
+}
+.banner__message span {
+  color: #569ae9;
+}
+.banner__search {
+  z-index: 100;
+}
+
+.area {
+  width: 95%;
+  height: 90rem;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 28rem);
+  grid-gap: 2rem;
+}
+
+.post {
+  background-color: #959595;
+  display: flex;
+  flex-direction: column;
+}
+.post__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.post__title {
+  color: #fff;
+  font-size: 2.4rem;
+}
+.post__delete {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  cursor: pointer;
+  color: #fff;
+  height: 3.5rem;
+  width: 3.5rem;
+  text-align: center;
+}
+.post__content {
+  flex-grow: 1;
+  color: #161616;
+  background-color: #fff;
+  border: 2px solid #959595;
+  font-size: 2.4rem;
+  padding: 1rem;
 }
 
 /*# sourceMappingURL=App.css.map */

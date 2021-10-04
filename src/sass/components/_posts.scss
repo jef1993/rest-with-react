@@ -1,0 +1,112 @@
+.user {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 10;
+}
+
+.nav {
+  width: 12rem;
+  background-color: $color-primary-dark;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__btn {
+    margin-top: 5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    background-color: transparent;
+    border: 3px solid $color-white;
+    cursor: pointer;
+
+    @include flex-center(row);
+
+    & * {
+      fill: $color-white;
+    }
+  }
+}
+
+.posts {
+  flex-grow: 1;
+  background-color: $color-white;
+  // min-height: 100vh;
+  // height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  // position: fixed;
+  margin: 5rem 0 3rem 0;
+
+  &__message {
+    & span {
+      color: $color-primary;
+    }
+  }
+
+  &__search {
+    z-index: 100;
+  }
+}
+
+.area {
+  width: 95%;
+  height: 90rem;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 28rem);
+  grid-gap: 2rem;
+}
+
+.post {
+  background-color: $color-grey;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 2.4rem;
+  }
+
+  &__delete {
+    background-color: transparent;
+    border: 2px solid $color-white;
+    border-radius: 100px;
+    cursor: pointer;
+    color: $color-white;
+    height: 3.5rem;
+    width: 3.5rem;
+    text-align: center;
+  }
+
+  &__content {
+    flex-grow: 1;
+    color: $color-black;
+    background-color: $color-white;
+    border: 2px solid $color-grey;
+    font-size: 2.4rem;
+    padding: 1rem;
+  }
+}

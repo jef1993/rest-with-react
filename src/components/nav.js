@@ -3,23 +3,17 @@ import { ReactComponent as Plus } from "../img/plus1.svg";
 import { ReactComponent as Cog } from "../img/cog.svg";
 import { ReactComponent as Signout } from "../img/switch.svg";
 
-export const Nav = ({logout}) => {
+export const Nav = ({ logout }) => {
   return (
     <div className="nav">
-      <a className="nav__link" href="#">
-        <div className="nav__btn">
-          <Plus />
-        </div>
+      <button className="nav__btn">
+        <Plus />
+      </button>
+      <a className="nav__btn" href="#">
+        <Cog />
       </a>
-      <a className="nav__link" href="#">
-        <div className="nav__btn">
-          <Cog />
-        </div>
-      </a>
-      <a className="nav__link" href="/" onClick={logout}>
-        <div className="nav__btn">
-          <Signout />
-        </div>
+      <a className="nav__btn" href="/" onClick={logout}>
+        <Signout />
       </a>
     </div>
   );

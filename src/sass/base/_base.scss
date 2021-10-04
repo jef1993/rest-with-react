@@ -18,3 +18,9 @@ body {
   font-weight: 300;
   color: $color-grey;
 }
+
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

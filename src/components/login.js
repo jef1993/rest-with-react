@@ -6,6 +6,10 @@ export const Login = ({
   passwordChange,
   errorMessage,
 }) => {
+  const myPosts = () => {
+    console.log("this is my posts");
+  };
+
   return (
     <div className="container__content login">
       <form className="form form__login" onSubmit={login}>
@@ -30,7 +34,7 @@ export const Login = ({
           {/* <label for="password">{errorMessage}</label> */}
         </div>
 
-        <button className="form__btn" type="submit">
+        <button className="form__btn" type="submit" onClick={myPosts}>
           Sign In
         </button>
       </form>

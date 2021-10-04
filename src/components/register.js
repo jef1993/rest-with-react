@@ -4,6 +4,7 @@ export const Register = ({
   usernameChange,
   emailChange,
   passwordChange,
+  message,
 }) => {
   return (
     <div className="container__content register">
@@ -33,6 +34,7 @@ export const Register = ({
               passwordChange(e.target.value);
             }}
           ></input>
+          <div className="form__message">{message}</div>
         </div>
 
         <button className="form__btn" type="submit">
@@ -42,7 +44,7 @@ export const Register = ({
       <div className="alt">
         have a account?{" "}
         <span>
-          <a className="alt__link" href="/login">
+          <a className="alt__link" href="/">
             Sign In
           </a>
         </span>
